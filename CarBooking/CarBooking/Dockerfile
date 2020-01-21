@@ -8,16 +8,16 @@ EXPOSE 80
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
 WORKDIR /src
-COPY ["CarBooking/CarBooking.csproj", "CarBooking/"]
-RUN dotnet restore "CarBooking/CarBooking.csproj"
+COPY ["CarBookingAPI/CarBookingAPI.csproj", "CarBookingAPI/"]
+RUN dotnet restore "CarBookingAPI/CarBookingAPI.csproj"
 COPY . .
-WORKDIR "/src/CarBooking"
-RUN dotnet build "CarBooking.csproj" -c Release -o /app/build
+WORKDIR "/src/CarBookingAPI"
+RUN dotnet build "CarBookingAPI.csproj" -c Release -o /app/build
 
 FROM build AS publish
-RUN dotnet publish "CarBooking.csproj" -c Release -o /app/publish
+RUN dotnet publish "CarBookingAPI.csproj" -c Release -o /app/publish
 
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "CarBooking.dll"]
+ENTRYPOINT ["dotnet", "CarBookingAPI.dll"]

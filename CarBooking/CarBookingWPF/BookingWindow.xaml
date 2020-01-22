@@ -1,0 +1,31 @@
+﻿<Window x:Class="CarBookingWPF.BookingWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CarBookingWPF"
+        mc:Ignorable="d"
+        Title="BookingWindow" Height="450" Width="800">
+    <StackPanel Orientation="Vertical" Margin="20">
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <DatePicker SelectedDate="{Binding SelectedDate}" FontSize="20" />
+            <Button Click="Button_Click" FontSize="20">Get Cars</Button>
+        </StackPanel>
+        <StackPanel Margin="10">
+            <DataGrid AutoGenerateColumns="False"  ItemsSource="{Binding Cars}" Name="CarGrid" CanUserAddRows="False">
+                <DataGrid.Columns>
+                    <DataGridTextColumn MinWidth="50" Header="Car Id" Binding="{Binding CarId}" />
+                    <DataGridTextColumn MinWidth="100" Header="Name" Binding="{Binding Name}" />
+                    <DataGridTextColumn MinWidth="100" Header="Brand" Binding="{Binding Brand}" />
+                    <DataGridTemplateColumn Header="Book Car">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="Button_Click_1" IsEnabled="True" Tag="{Binding CarId}">Book Car</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </StackPanel>
+    </StackPanel>
+</Window>

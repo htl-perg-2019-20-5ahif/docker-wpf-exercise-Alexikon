@@ -6,7 +6,15 @@
         xmlns:local="clr-namespace:CarBookingWPF"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <StackPanel Margin="20">
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Cars}" Name="CarGrid" CanUserAddRows="False" Margin="0 0 0 25">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="50" Header="CarId" Binding="{Binding CarId}" />
+                <DataGridTextColumn MinWidth="100" Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn MinWidth="100" Header="Brand" Binding="{Binding Brand}" />
+            </DataGrid.Columns>
+        </DataGrid>
 
-    </Grid>
+        <Button Click="Button_Click">Book Car</Button>
+    </StackPanel>
 </Window>

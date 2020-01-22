@@ -23,7 +23,7 @@ namespace CarBooking.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Car>>> GetCars()
         {
-            return await _context.Cars.Include(c => c.Bookings).ToListAsync();
+            return await _context.Cars.ToListAsync();
         }
 
         // GET: api/Cars/5
@@ -40,7 +40,7 @@ namespace CarBooking.Controllers
             return car;
         }
 
-        // GET: api/Cars/day/25.09.2000
+        // GET: api/Cars/day/21.01.2020
         [HttpGet("day/{day}")]
         public async Task<ActionResult<IEnumerable<Car>>> GetCarsForDay(string day)
         {

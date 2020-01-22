@@ -1,0 +1,19 @@
+﻿<Page x:Class="CarBookingWPF.ListCarsPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:CarBookingWPF"
+      mc:Ignorable="d" 
+      d:DesignHeight="340" d:DesignWidth="760"
+      Title="ListCarsPage">
+    <StackPanel>
+        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Cars}" Name="CarGrid" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn MinWidth="50" Header="CarId" Binding="{Binding CarId}" />
+                <DataGridTextColumn MinWidth="100" Header="Name" Binding="{Binding Name}" />
+                <DataGridTextColumn MinWidth="100" Header="Brand" Binding="{Binding Brand}" />
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Page>

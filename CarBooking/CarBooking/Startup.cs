@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System.IO;
 
 namespace CarBooking
 {
@@ -33,6 +34,13 @@ namespace CarBooking
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            // for docker
+            /*using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+            {
+                scope.ServiceProvider.GetService<CarBookingContext>().Database.Migrate();
+                //scope.ServiceProvider.GetService<CarBookingContext>().Database.ExecuteSqlRaw(File.ReadAllText("Data.sql"));
+            }*/
 
             app.UseRouting();
 

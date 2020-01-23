@@ -3,8 +3,8 @@ version: '3.4'
 services:
   carbooking:
     environment:
-        ConnectionStrings__DefaultConnection: Server=mssql,1433;Database=CarBooking;User Id=sa;Password=Password;
-    image: ${DOCKER_REGISTRY-}carbooking
+        ConnectionStrings__DefaultConnection: Server=mssql,1433;Database=CarBookingDatabase;User Id=sa;Password=!Password1;
+    image: alexikon/carbookingapi
     build:
         context: .
         dockerfile: CarBooking/Dockerfile
@@ -15,7 +15,5 @@ services:
   mssql:
     image: 'mcr.microsoft.com/mssql/server'
     environment:
-        SA_PASSWORD: 'Password'
+        SA_PASSWORD: '!Password1'
         ACCEPT_EULA: 'Y'
-    ports:
-        - 1433:1433

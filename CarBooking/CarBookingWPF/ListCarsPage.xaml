@@ -7,13 +7,11 @@
       mc:Ignorable="d" 
       d:DesignHeight="340" d:DesignWidth="760"
       Title="ListCarsPage">
-    <StackPanel>
-        <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Cars}" Name="CarGrid" CanUserAddRows="False">
-            <DataGrid.Columns>
-                <DataGridTextColumn MinWidth="50" Header="CarId" Binding="{Binding CarId}" />
-                <DataGridTextColumn MinWidth="100" Header="Name" Binding="{Binding Name}" />
-                <DataGridTextColumn MinWidth="100" Header="Brand" Binding="{Binding Brand}" />
-            </DataGrid.Columns>
-        </DataGrid>
-    </StackPanel>
+    <DataGrid AutoGenerateColumns="False" IsReadOnly="True" ItemsSource="{Binding Cars}" Name="CarGrid" CanUserAddRows="False">
+        <DataGrid.Columns>
+            <DataGridTextColumn MinWidth="50" Header="CarId" Binding="{Binding CarId}" />
+            <DataGridTextColumn MinWidth="100" Header="Name" Binding="{Binding Name}" />
+            <DataGridTextColumn MinWidth="100" Header="Brand" Binding="{Binding Brand}" />
+        </DataGrid.Columns>
+    </DataGrid>
 </Page>

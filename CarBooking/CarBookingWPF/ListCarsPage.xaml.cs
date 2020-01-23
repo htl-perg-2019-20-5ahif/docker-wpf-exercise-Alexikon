@@ -22,9 +22,9 @@ namespace CarBookingWPF
     /// </summary>
     public partial class ListCarsPage : Page
     {
-        public ObservableCollection<Car> Cars { get; set; } = new ObservableCollection<Car>();
+        public ObservableCollection<Car> Cars { get; } = new ObservableCollection<Car>();
 
-        private static HttpClient HttpClient;
+        private HttpClient HttpClient;
 
         public ListCarsPage(HttpClient http)
         {
